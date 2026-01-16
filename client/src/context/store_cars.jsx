@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 // Create the context
-const carsStore = createContext();
+const CarsStore = createContext();
 const API_URL = import.meta.env.VITE_API_URL;
 // Provider component
 export default function ProviderCar({ children }) {
@@ -38,10 +38,10 @@ export default function ProviderCar({ children }) {
 
   const value = { cars, setCars, fetchCars, addCar };
 
-  return <carsStore.Provider value={value}>{children}</carsStore.Provider>;
+  return <CarsStore.Provider value={value}>{children}</CarsStore.Provider>;
 }
 
 // Custom hook to use the context
 export const useCar = () => {
-  return useContext(carsStore);
+  return useContext(CarsStore);
 };
