@@ -1,11 +1,16 @@
 const express = require("express");
-
+const cors = require("cors");
 const app = express();
 const PORT = 3003;
 
 // Middleware to parse JSON
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+  })
+);
 // In-memory cars array
 let cars = [];
 let nextId = 1;
